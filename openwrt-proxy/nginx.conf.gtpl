@@ -54,9 +54,18 @@ http {
             proxy_http_version          1.1;
             proxy_ignore_client_abort   off;
             proxy_read_timeout          86400s;
-            proxy_redirect              off;
+            proxy_redirect              ~^(/.*)$ $http_x_ingress_path$1;
+            proxy_cookie_path           / $http_x_ingress_path/;
             proxy_send_timeout          86400s;
             proxy_max_temp_file_size    0;
+
+            sub_filter_once off;
+            sub_filter_types text/html text/css application/javascript text/javascript application/json;
+            sub_filter '="/' '="$http_x_ingress_path/';
+            sub_filter "='/" "='$http_x_ingress_path/";
+            sub_filter '"/' '"$http_x_ingress_path/';
+            sub_filter "'/" "'$http_x_ingress_path/";
+            sub_filter 'url(/' 'url($http_x_ingress_path/';
 
             proxy_no_cache     1;
             proxy_cache_bypass 1;
@@ -67,7 +76,7 @@ http {
 
             proxy_set_header Accept-Encoding "";
             proxy_set_header Connection $connection_upgrade;
-            proxy_set_header Host $http_host;
+            proxy_set_header Host $proxy_host;
             proxy_set_header Upgrade $http_upgrade;
             proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
             proxy_set_header X-Forwarded-Proto $scheme;
@@ -77,4 +86,3 @@ http {
         }
     }
 }
-
