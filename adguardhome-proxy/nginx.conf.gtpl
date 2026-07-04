@@ -50,7 +50,10 @@ http {
             deny    all;
 
             set     $target "{{ .server }}";
-            proxy_pass                  $target;
+            rewrite ^/[0-9a-f]+_adguardhome_proxy$ / break;
+            rewrite ^/[0-9a-f]+_adguardhome_proxy(/.*)$ $1 break;
+
+            proxy_pass                  $target$uri$is_args$args;
             proxy_http_version          1.1;
             proxy_ignore_client_abort   off;
             proxy_read_timeout          86400s;
