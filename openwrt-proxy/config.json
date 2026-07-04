@@ -1,0 +1,28 @@
+{
+    "name": "OpenWrt Proxy",
+    "version": "1.0.0",
+    "slug": "openwrt_proxy",
+    "description": "Proxy for an externally running OpenWrt web interface",
+    "url": "https://github.com/freefelt/ha-ingress-proxies/tree/master/openwrt-proxy",
+    "arch": [
+      "aarch64",
+      "amd64"
+    ],
+    "boot": "auto",
+    "init": true,
+    "ingress": true,
+    "timeout": 30,
+    "panel_icon": "mdi:router-wireless",
+    "ports": {
+      "8099/tcp": null
+    },
+    "ports_description": {
+      "8099/tcp": "Frontend tcp-listen port"
+    },
+    "options": {
+      "server": null
+    },
+    "schema": {
+      "server": "url"
+    }
+}
