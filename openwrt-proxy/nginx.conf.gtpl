@@ -63,8 +63,8 @@ http {
             proxy_max_temp_file_size    0;
 
             sub_filter_once off;
-            sub_filter_types text/html text/css application/javascript text/javascript application/json text/xml application/xml;
-            sub_filter '</head>' '<base href="$http_x_ingress_path/" /><script>if(window.parent!==window){window.parent.postMessage({type:"addon"},'*');}</script></head>';
+            sub_filter_types text/css application/javascript text/javascript application/json text/xml application/xml;
+            sub_filter '</head>' "<base href=\"$http_x_ingress_path\" /><script>if(window.parent!==window){window.parent.postMessage({type:\"addon\"},'*');}</script></head>";
             sub_filter '="/' '="$http_x_ingress_path/';
             sub_filter "='/" "='$http_x_ingress_path/";
             sub_filter '"/' '"$http_x_ingress_path/';
