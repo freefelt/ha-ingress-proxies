@@ -1,6 +1,6 @@
 {
     "name": "AdGuard Home Proxy",
-    "version": "1.0.2",
+    "version": "1.0.3",
     "slug": "adguardhome_proxy",
     "description": "Proxy for an externally running AdGuard Home web interface",
     "url": "https://github.com/freefelt/ha-ingress-proxies/tree/master/adguardhome-proxy",
