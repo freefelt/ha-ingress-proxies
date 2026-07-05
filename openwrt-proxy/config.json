@@ -1,6 +1,6 @@
 {
     "name": "OpenWrt Proxy",
-    "version": "1.0.6",
+    "version": "1.0.7",
     "slug": "openwrt_proxy",
     "description": "Proxy for an externally running OpenWrt web interface",
     "url": "https://github.com/freefelt/ha-ingress-proxies/tree/master/openwrt-proxy",
@@ -21,9 +21,13 @@
       "8099/tcp": "Frontend tcp-listen port"
     },
     "options": {
-      "server": null
+      "server": null,
+      "username": "",
+      "password": ""
     },
     "schema": {
-      "server": "url"
+      "server": "url",
+      "username": "str",
+      "password": "password"
     }
 }

@@ -54,6 +54,10 @@ http {
         location / {
             allow   172.30.32.2;
             deny    all;
+{{ if .username }}
+            auth_basic "Restricted";
+            auth_basic_user_file /config/.htpasswd;
+{{ end }}
 
             set     $target "{{ .server }}";
             rewrite ^/[0-9a-f]+_openwrt_proxy$ / break;
