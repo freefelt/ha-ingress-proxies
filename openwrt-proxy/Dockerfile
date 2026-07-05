@@ -5,6 +5,7 @@ RUN apk add --no-cache --update nginx
 # Copy root filesystem
 ADD nginx.conf.gtpl /
 ADD entrypoint.sh /
+ADD ingress-helper.js /config/
 
 # Build arguments
 ARG BUILD_ARCH
