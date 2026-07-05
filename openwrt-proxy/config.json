@@ -1,6 +1,6 @@
 {
     "name": "OpenWrt Proxy",
-    "version": "1.0.4",
+    "version": "1.0.5",
     "slug": "openwrt_proxy",
     "description": "Proxy for an externally running OpenWrt web interface",
     "url": "https://github.com/freefelt/ha-ingress-proxies/tree/master/openwrt-proxy",
